@@ -1,0 +1,9 @@
+
+  <ion-item>
+    <ion-textarea name="message" #messageInput [(ngModel)]="message" label="Default input" (keydown.enter)="keyDownEnter($event)"></ion-textarea>
+    <ion-button type="submit" (click)="sendMessage()">Send</ion-button>
+  </ion-item>
+  <ion-item>
+    <p>{{output}}</p>
+  </ion-item>
+
