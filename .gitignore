@@ -2,3 +2,5 @@ node_modules
 .angular
 .firebase
 www
+android
+ios

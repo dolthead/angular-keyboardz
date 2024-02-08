@@ -1,0 +1,7 @@
+{
+  "name": "angular-keyboardz",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
