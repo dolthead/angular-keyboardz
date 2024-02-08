@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-example',
@@ -6,7 +6,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['example.component.css'],
 })
 export class ExampleComponent {
-  @ViewChild('messageInput') messageInput: HTMLIonTextareaElement;
+  @ViewChild('messageInput') messageInput: HTMLIonTextareaElement | undefined = undefined;
   message = '';
   output = '';
 
@@ -16,10 +16,10 @@ export class ExampleComponent {
       this.output = this.message;
       this.message = '';
     }
-    this.messageInput.setFocus();
+    this.messageInput?.setFocus();
   }
 
-  keyDownEnter(event) {
+  keyDownEnter(event: any) {
     event.preventDefault();
     if (!event.shiftKey) {
       this.sendMessage();
