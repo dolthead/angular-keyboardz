@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { dummyMessages, pickerIcon, sendIcon } from './app.const';
+import { dummyMessages } from './app.const';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +12,10 @@ export class AppComponent {
   message = '';
   messages: string[] = [];
   showPicker = false;
-  pickerIcon = pickerIcon;
-  sendIcon = sendIcon;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) {
+    console.log(1);
+  }
 
   sendMessage() {
     if (this.message.trim()) {
@@ -23,7 +23,16 @@ export class AppComponent {
       this.messages.push(this.message);
       this.message = '';
     }
+    this.setFocus();
+  }
+  
+  setFocus() {
     this.messageInput?.nativeElement.focus();
+  }
+
+  togglePicker() {
+    this.showPicker = !this.showPicker;
+    this.setFocus();
   }
 
   keyDownEnter(event: any) {

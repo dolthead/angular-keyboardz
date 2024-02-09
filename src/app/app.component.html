@@ -7,10 +7,9 @@
 
   <ion-footer class="ion-padding">
     <div class="input-area">
-      <button
-        [innerHTML]="getSafeSvg(pickerIcon)"
-        (click)="showPicker = !showPicker"
-      ></button>
+      <button (click)="togglePicker()">
+        <ion-icon src="/assets/picker.svg" size="small"></ion-icon>
+      </button>
 
       <textarea
         name="message"
@@ -21,11 +20,9 @@
         (keydown.enter)="keyDownEnter($event)"
       ></textarea>
 
-      <button
-        type="submit"
-        [innerHTML]="getSafeSvg(sendIcon)"
-        (click)="sendMessage()"
-      ></button>
+      <button type="submit" (click)="sendMessage()">
+        <ion-icon src="/assets/send.svg" size="small"></ion-icon>
+      </button>
     </div>
 
     <div *ngIf="showPicker" class="picker"></div>
