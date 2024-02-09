@@ -1,5 +1,33 @@
 <ion-app>
-  <ion-content class="ion-padding">
-    <app-example></app-example>
+  <ion-content [fullscreen]="true" class="ion-padding">
+    <ul>
+      <li *ngFor="let msg of messages">{{ msg }}</li>
+    </ul>
   </ion-content>
+
+  <ion-footer class="ion-padding">
+    <div class="input-area">
+      <button
+        [innerHTML]="getSafeSvg(pickerIcon)"
+        (click)="showPicker = !showPicker"
+      ></button>
+
+      <textarea
+        name="message"
+        rows="1"
+        #messageInput
+        [(ngModel)]="message"
+        label="Default input"
+        (keydown.enter)="keyDownEnter($event)"
+      ></textarea>
+
+      <button
+        type="submit"
+        [innerHTML]="getSafeSvg(sendIcon)"
+        (click)="sendMessage()"
+      ></button>
+    </div>
+
+    <div *ngIf="showPicker" class="picker"></div>
+  </ion-footer>
 </ion-app>
