@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
-import { ExampleComponent } from './example.component';
 
 @NgModule({
   imports: [
@@ -15,7 +14,7 @@ import { ExampleComponent } from './example.component';
     RouterModule.forRoot([]),
     IonicModule.forRoot({ mode: 'ios' }),
   ],
-  declarations: [AppComponent, ExampleComponent],
+  declarations: [AppComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
